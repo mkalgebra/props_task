@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import {ClassFirst, ClassSecond, FunctionFirst, FunctionSecond} from './Components';
 
 function App() {
+  const users = [{name: 'a', age: '21', id: 1}, {name: 'b', age: '22', id: 2}, {name: 'c', age: '23', id: 3}]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {users.map(i=>
+        {
+          return(
+            <div key={i.id}>
+              <ClassFirst name={i.name} age={i.age}/>
+              <ClassSecond name={i.name} age={i.age}/>
+              <FunctionFirst name={i.name} age={i.age}/>
+              <FunctionSecond name={i.name} age={i.age}/>
+            </div>
+          )})}
     </div>
   );
 }
